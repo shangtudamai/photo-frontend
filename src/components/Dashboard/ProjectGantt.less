@@ -1,0 +1,165 @@
+.project-gantt-card {
+  .gantt-controls {
+    display: flex;
+    gap: 8px;
+
+    .scroll-btn {
+      cursor: pointer;
+      padding: 4px 8px;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background-color: #f0f0f0;
+      }
+    }
+  }
+
+  .gantt-container {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+  }
+
+  .gantt-timeline {
+    position: relative;
+    transition: transform 0.3s ease;
+    min-width: 100%;
+
+    .timeline-header {
+      display: flex;
+      border-bottom: 2px solid #d9d9d9;
+      background: #fafafa;
+
+      .timeline-date {
+        flex-shrink: 0;
+        text-align: center;
+        padding: 8px 4px;
+        border-right: 1px solid #e8e8e8;
+        font-size: 12px;
+
+        &.weekend {
+          background: #f5f5f5;
+        }
+
+        &.today {
+          background: #e6f7ff;
+          font-weight: 600;
+          color: #1890ff;
+        }
+
+        .date-day {
+          font-size: 14px;
+          font-weight: 500;
+        }
+
+        .date-weekday {
+          color: rgba(0, 0, 0, 0.45);
+          font-size: 11px;
+        }
+      }
+    }
+
+    .today-marker {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: #ff4d4f;
+      z-index: 10;
+      pointer-events: none;
+
+      &::before {
+        content: '今';
+        position: absolute;
+        top: -20px;
+        left: -8px;
+        background: #ff4d4f;
+        color: white;
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-size: 11px;
+      }
+    }
+
+    .gantt-bars {
+      position: relative;
+      min-height: 400px;
+
+      .gantt-row {
+        position: relative;
+        border-bottom: 1px solid #f0f0f0;
+        display: flex;
+        align-items: center;
+
+        .gantt-row-label {
+          position: absolute;
+          left: 0;
+          width: 200px;
+          padding: 8px;
+          background: white;
+          z-index: 5;
+          border-right: 1px solid #e8e8e8;
+
+          .order-info {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 4px;
+
+            .order-no {
+              font-size: 12px;
+              font-weight: 500;
+              color: #1890ff;
+            }
+          }
+
+          .client-name {
+            font-size: 11px;
+            color: rgba(0, 0, 0, 0.45);
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+          }
+        }
+
+        .gantt-bar {
+          position: absolute;
+          height: 30px;
+          border-radius: 4px;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+          overflow: hidden;
+          margin-left: 200px;
+
+          &:hover {
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+            transform: translateY(-1px);
+            z-index: 10;
+          }
+
+          .gantt-bar-progress {
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            border-radius: 4px 0 0 4px;
+          }
+
+          .gantt-bar-text {
+            position: relative;
+            z-index: 1;
+            color: white;
+            font-size: 12px;
+            font-weight: 500;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+          }
+        }
+      }
+    }
+  }
+}

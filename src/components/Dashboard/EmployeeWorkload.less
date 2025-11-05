@@ -1,0 +1,75 @@
+.employee-workload-card {
+  height: 100%;
+
+  .ant-card-body {
+    padding: 16px;
+    max-height: 500px;
+    overflow-y: auto;
+  }
+
+  .workload-item {
+    padding: 12px 0;
+    border-bottom: 1px solid #f0f0f0;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    .employee-info {
+      display: flex;
+      align-items: flex-start;
+      width: 100%;
+      gap: 12px;
+
+      .employee-details {
+        flex: 1;
+
+        .employee-header {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-bottom: 8px;
+
+          .employee-name {
+            font-size: 14px;
+            font-weight: 500;
+            color: rgba(0, 0, 0, 0.85);
+          }
+
+          .role-tag {
+            font-size: 12px;
+          }
+        }
+
+        .workload-info {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          margin-bottom: 8px;
+
+          .ant-progress {
+            flex: 1;
+            margin: 0;
+          }
+
+          .status-tag {
+            font-size: 12px;
+            margin: 0;
+          }
+        }
+
+        .task-summary {
+          display: flex;
+          gap: 16px;
+          font-size: 12px;
+          color: rgba(0, 0, 0, 0.45);
+
+          .task-count,
+          .pending-pieces {
+            display: inline-block;
+          }
+        }
+      }
+    }
+  }
+}

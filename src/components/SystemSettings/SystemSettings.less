@@ -1,0 +1,189 @@
+.system-settings-container {
+  padding: 24px;
+  background: #f0f2f5;
+  min-height: calc(100vh - 64px);
+
+  .page-header {
+    background: white;
+    padding: 24px;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+
+      .header-icon {
+        font-size: 32px;
+        color: #1890ff;
+      }
+
+      h2 {
+        margin: 0 0 4px 0;
+        font-size: 20px;
+        font-weight: 600;
+        color: #333;
+      }
+
+      p {
+        margin: 0;
+        font-size: 14px;
+        color: #999;
+      }
+    }
+
+    .header-right {
+      display: flex;
+      gap: 12px;
+    }
+  }
+
+  .settings-card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+
+    .ant-tabs-nav {
+      padding: 0 24px;
+    }
+
+    .ant-tabs-content {
+      padding: 24px;
+    }
+  }
+
+  .parameter-form-container {
+    max-width: 800px;
+
+    .parameter-form {
+      .ant-form-item-label > label {
+        font-weight: 500;
+      }
+
+      .form-section {
+        margin-bottom: 32px;
+        padding: 20px;
+        background: #fafafa;
+        border-radius: 4px;
+
+        h3 {
+          margin: 0 0 8px 0;
+          font-size: 16px;
+          font-weight: 600;
+          color: #333;
+        }
+
+        .section-desc {
+          margin: 0 0 20px 0;
+          font-size: 14px;
+          color: #999;
+        }
+
+        h4 {
+          margin: 20px 0 16px 0;
+          font-size: 14px;
+          font-weight: 600;
+          color: #666;
+          border-bottom: 1px solid #e8e8e8;
+          padding-bottom: 8px;
+
+          &:first-of-type {
+            margin-top: 0;
+          }
+        }
+      }
+
+      .price-range-group {
+        margin-bottom: 24px;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+
+      .ant-table {
+        margin-bottom: 16px;
+
+        .ant-table-cell {
+          padding: 8px;
+        }
+      }
+    }
+  }
+
+  .value-cell {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  @media (max-width: 768px) {
+    padding: 16px;
+
+    .page-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+
+      .header-left {
+        .header-icon {
+          font-size: 24px;
+        }
+
+        h2 {
+          font-size: 18px;
+        }
+
+        p {
+          font-size: 13px;
+        }
+      }
+
+      .header-right {
+        width: 100%;
+
+        button {
+          flex: 1;
+        }
+      }
+    }
+
+    .settings-card {
+      .ant-tabs-nav {
+        padding: 0 16px;
+      }
+
+      .ant-tabs-content {
+        padding: 16px;
+      }
+    }
+
+    .parameter-form-container {
+      max-width: 100%;
+
+      .parameter-form {
+        .form-section {
+          padding: 16px;
+
+          h3 {
+            font-size: 15px;
+          }
+
+          .section-desc {
+            font-size: 13px;
+          }
+        }
+
+        .ant-col {
+          width: 100% !important;
+        }
+      }
+    }
+  }
+}

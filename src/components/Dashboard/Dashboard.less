@@ -1,0 +1,28 @@
+.dashboard-container {
+  padding: 24px;
+  background: #f0f2f5;
+  min-height: calc(100vh - 64px);
+
+  .middle-section {
+    margin-bottom: 16px;
+  }
+
+  .bottom-section {
+    margin-bottom: 16px;
+  }
+
+  .financial-section {
+    margin-bottom: 16px;
+  }
+
+  // 响应式调整
+  @media (max-width: 768px) {
+    padding: 12px;
+
+    .middle-section,
+    .bottom-section,
+    .financial-section {
+      margin-bottom: 12px;
+    }
+  }
+}

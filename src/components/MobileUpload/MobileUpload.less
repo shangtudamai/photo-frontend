@@ -1,0 +1,186 @@
+/**
+ * 移动端上传组件样式
+ */
+
+.mobile-upload-container {
+  padding: 16px;
+  background: #fff;
+
+  .upload-preview-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 16px;
+
+    .preview-item {
+      position: relative;
+      aspect-ratio: 1;
+      border-radius: 8px;
+      overflow: hidden;
+      background: #f5f5f5;
+
+      .preview-image-wrapper {
+        position: relative;
+        width: 100%;
+        height: 100%;
+
+        .preview-image {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
+        }
+
+        .upload-progress-overlay {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: rgba(0, 0, 0, 0.5);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          z-index: 2;
+        }
+
+        .status-badge {
+          position: absolute;
+          top: 8px;
+          right: 8px;
+          width: 24px;
+          height: 24px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 14px;
+          font-weight: bold;
+          color: #fff;
+          z-index: 3;
+
+          &.success {
+            background: #52c41a;
+          }
+
+          &.error {
+            background: #ff4d4f;
+          }
+        }
+      }
+
+      .preview-actions {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
+        display: flex;
+        justify-content: space-around;
+        padding: 8px 4px;
+        opacity: 0;
+        transition: opacity 0.3s;
+
+        .ant-btn {
+          color: #fff;
+          min-width: 32px;
+          min-height: 32px;
+          padding: 4px;
+
+          &:hover {
+            color: #fff;
+            background: rgba(255, 255, 255, 0.2);
+          }
+
+          &.ant-btn-dangerous:hover {
+            color: #fff;
+            background: rgba(255, 77, 79, 0.5);
+          }
+        }
+      }
+
+      &:active .preview-actions {
+        opacity: 1;
+      }
+
+      // 长按显示操作按钮（移动端友好）
+      @media (hover: none) {
+        .preview-actions {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  .upload-actions {
+    .touch-friendly-btn {
+      min-height: 48px;
+      font-size: 16px;
+      border-radius: 8px;
+      font-weight: 500;
+
+      .anticon {
+        font-size: 18px;
+      }
+    }
+
+    .upload-all-btn {
+      margin-top: 12px;
+      background: #52c41a;
+      border-color: #52c41a;
+
+      &:hover:not(:disabled) {
+        background: #73d13d;
+        border-color: #73d13d;
+      }
+
+      &:disabled {
+        background: #d9d9d9;
+        border-color: #d9d9d9;
+      }
+    }
+  }
+}
+
+// 预览模态框样式
+.mobile-preview-modal {
+  .ant-modal-content {
+    background: #000;
+  }
+
+  .ant-modal-close {
+    color: #fff;
+
+    &:hover {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.2);
+    }
+  }
+
+  .ant-modal-body {
+    padding: 0;
+  }
+
+  img {
+    display: block;
+  }
+}
+
+// 适配不同屏幕尺寸
+@media (max-width: 375px) {
+  .mobile-upload-container {
+    .upload-preview-list {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .mobile-upload-container {
+    .upload-preview-list {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+  }
+}

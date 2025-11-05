@@ -1,0 +1,250 @@
+/**
+ * 仪表盘移动端适配样式
+ * 添加到 Dashboard.less 中，或单独创建
+ */
+
+@import '~@/styles/responsive.less';
+
+.dashboard-container {
+  // 移动端适配
+  .mobile({
+    padding: 12px;
+
+    // 页面头部
+    .page-header {
+      padding: 16px;
+      margin-bottom: 12px;
+
+      h2 {
+        font-size: 18px;
+      }
+
+      p {
+        font-size: 13px;
+      }
+    }
+
+    // 统计卡片
+    .statistics-cards {
+      .statistics-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        margin-bottom: 12px;
+      }
+
+      .stat-card {
+        .ant-card-body {
+          padding: 16px;
+        }
+
+        .stat-icon {
+          font-size: 32px;
+        }
+
+        .stat-value {
+          font-size: 24px;
+          margin: 8px 0;
+        }
+
+        .stat-label {
+          font-size: 13px;
+        }
+      }
+    }
+
+    // 模块按优先级垂直排列
+    .dashboard-modules {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+
+      .module-card {
+        margin-bottom: 0;
+
+        .ant-card-head {
+          padding: 12px 16px;
+
+          .ant-card-head-title {
+            font-size: 16px;
+          }
+        }
+
+        .ant-card-body {
+          padding: 16px;
+        }
+      }
+
+      // 我的任务（优先级最高）
+      .my-tasks-module {
+        order: 1;
+
+        .task-list {
+          .task-item {
+            padding: 12px;
+            margin-bottom: 8px;
+            border-radius: 6px;
+
+            .task-header {
+              font-size: 14px;
+              margin-bottom: 8px;
+            }
+
+            .task-info {
+              font-size: 13px;
+
+              .info-item {
+                margin-bottom: 6px;
+              }
+            }
+
+            .task-actions {
+              margin-top: 8px;
+
+              .ant-btn {
+                height: 36px;
+                font-size: 13px;
+              }
+            }
+          }
+        }
+      }
+
+      // 待处理通知（优先级第二）
+      .notifications-module {
+        order: 2;
+
+        .notification-list {
+          .notification-item {
+            padding: 12px;
+            font-size: 13px;
+          }
+        }
+      }
+
+      // 最近订单（优先级第三）
+      .recent-orders-module {
+        order: 3;
+
+        // 使用卡片列表替代表格
+        .orders-table {
+          display: none;
+        }
+
+        .orders-card-list {
+          display: block;
+
+          .order-card {
+            background: #f5f5f5;
+            padding: 12px;
+            margin-bottom: 8px;
+            border-radius: 6px;
+
+            .order-no {
+              font-size: 14px;
+              font-weight: 600;
+              margin-bottom: 8px;
+            }
+
+            .order-info {
+              font-size: 13px;
+              color: #666;
+
+              .info-row {
+                margin-bottom: 4px;
+              }
+            }
+          }
+        }
+      }
+
+      // 员工工作量（优先级第四）
+      .employee-workload-module {
+        order: 4;
+
+        .workload-table {
+          font-size: 13px;
+
+          .ant-table-thead > tr > th {
+            padding: 8px;
+          }
+
+          .ant-table-tbody > tr > td {
+            padding: 8px;
+          }
+        }
+      }
+
+      // 项目甘特图（移动端隐藏或简化）
+      .project-gantt-module {
+        order: 5;
+
+        .gantt-chart {
+          display: none; // 移动端隐藏复杂图表
+        }
+
+        .gantt-mobile-tip {
+          display: block;
+          text-align: center;
+          padding: 24px;
+          color: #999;
+          font-size: 13px;
+        }
+      }
+
+      // 财务图表（移动端简化）
+      .financial-chart-module {
+        order: 6;
+
+        .recharts-wrapper {
+          .recharts-surface {
+            // 调整图表尺寸
+          }
+
+          .recharts-legend-wrapper {
+            font-size: 12px;
+          }
+        }
+      }
+    }
+  });
+
+  // 平板端适配
+  .tablet({
+    padding: 16px;
+
+    .statistics-cards {
+      .statistics-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+      }
+    }
+
+    .dashboard-modules {
+      .module-card {
+        .ant-card-head {
+          padding: 14px 20px;
+        }
+
+        .ant-card-body {
+          padding: 20px;
+        }
+      }
+    }
+  });
+}
+
+// 移动端专用组件样式
+.show-mobile-only {
+  display: none !important;
+
+  .mobile({
+    display: block !important;
+  });
+}
+
+.hide-mobile {
+  .mobile({
+    display: none !important;
+  });
+}

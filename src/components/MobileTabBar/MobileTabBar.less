@@ -1,0 +1,61 @@
+.mobile-tab-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: #fff;
+  border-top: 1px solid #f0f0f0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 8px;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.06);
+  z-index: 1000;
+
+  // 为底部导航预留空间
+  & + .page-content {
+    padding-bottom: 70px;
+  }
+
+  .tab-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 0;
+    cursor: pointer;
+    transition: all 0.3s;
+    min-width: 48px;
+    min-height: 48px;
+
+    .tab-icon {
+      font-size: 24px;
+      color: #999;
+      transition: color 0.3s;
+      margin-bottom: 4px;
+    }
+
+    .tab-title {
+      font-size: 12px;
+      color: #999;
+      transition: color 0.3s;
+    }
+
+    &.active {
+      .tab-icon {
+        color: #1890ff;
+      }
+
+      .tab-title {
+        color: #1890ff;
+        font-weight: 500;
+      }
+    }
+
+    &:active {
+      opacity: 0.7;
+    }
+  }
+}
